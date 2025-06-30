@@ -81,3 +81,6 @@ Una aplicación Android que permite:
 - `Modelos/Pais.java` - Modelo de país y validación regex
 - `res/layout/` - Diseños de las pantallas y diálogos
 - `res/drawable/` - Iconos de acciones
+
+1332134
+1323213
