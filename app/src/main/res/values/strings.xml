@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PM2E1390415</string>
+    <string name="pf_desc">Imagen de perfil para contacto.</string>
+    <string name="pf_title">LIBRETA DE CONTACTOS</string>
+    <string name="pf_reg">Seleccione región del contacto (pais):</string>
+    <string name="pf_nom">Ingrese nombre completo del contacto:</string>
+    <string name="pf_etnom">Nombre del Contacto</string>
+    <string name="pf_tel">Ingrese el numero teléfonico del contacto:</string>
+    <string name="pf_reg_id">+XXX</string>
+    <string name="pf_not">Ingrese una nota extra para su contacto:</string>
+    <string name="pf_tel_hint">Numero Teléfonico</string>
+    <string name="pf_nota">Escriba una nota! ej: Este contacto es mi amigo.</string>
+    <string name="pf_tel_num">Numero Teléfonico</string>
+    <string name="pf_nota_desc">Haz clic para agregar una nota!</string>
+    <string name="pf_btng">GUARDAR CONTACTO</string>
+    <string name="pf_btnv">VER CONTACTOS</string>
+</resources>

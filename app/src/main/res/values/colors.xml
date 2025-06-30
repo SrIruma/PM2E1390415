@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color> <!-- Fondo general -->
+    <color name="colorOnPrimary">#000000</color> <!-- Texto principal -->
+    <color name="colorAccent">#448AFF</color> <!-- Botón y detalles -->
+    <color name="hintColor">#888888</color> <!-- Texto de hint -->
+    <color name="cardBackground">#F5F5F5</color> <!-- Fondo de CardView -->
+    <color name="buttonText">#FFFFFF</color> <!-- Texto del botón -->
+</resources>
