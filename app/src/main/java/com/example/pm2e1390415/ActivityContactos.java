@@ -1,7 +1,9 @@
 package com.example.pm2e1390415;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,9 +16,12 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -119,14 +124,22 @@ public class ActivityContactos extends AppCompatActivity {
                         .setTitle("Llamar a " + contacto.getNombre())
                         .setMessage("¿Deseas llamar al número: " + contacto.getTelefono() + "?")
                         .setPositiveButton("Sí", (dialog, which) -> {
-                            Intent intent = new Intent(Intent.ACTION_CALL);
-                            intent.setData(Uri.parse("tel:" + contacto.getTelefono()));
-                            startActivity(intent);
+                            if (ContextCompat.checkSelfPermission(ActivityContactos.this,
+                                    Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+                                ActivityCompat.requestPermissions(ActivityContactos.this,
+                                        new String[]{Manifest.permission.CALL_PHONE},
+                                        1);
+
+                            } else {
+                                realizarLlamada(contacto.getTelefono());
+                            }
                         })
                         .setNegativeButton("No", null)
                         .show();
             }
         });
+
         busqueda.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -141,4 +154,23 @@ public class ActivityContactos extends AppCompatActivity {
         });
         contactos.setAdapter(ca);
     }
+
+    private void realizarLlamada(String telefono) {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + telefono));
+        startActivity(intent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Permiso concedido. Intenta llamar de nuevo.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Permiso denegado. No se puede realizar la llamada.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
 }

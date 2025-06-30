@@ -266,8 +266,18 @@ public class MainActivity extends AppCompatActivity {
         String nota = etNota.getText().toString().trim();
         Pais paisSeleccionado = (Pais) spPais.getSelectedItem();
 
-        if (nombre.isEmpty() || telefono.isEmpty() || nota.isEmpty()) {
-            mostrarAlerta("Todos los campos son obligatorios.");
+        if (nombre.trim().isEmpty()) {
+            mostrarAlerta("Por favor, ingresa un nombre para el contacto.");
+            return;
+        }
+
+        if (telefono.trim().isEmpty()) {
+            mostrarAlerta("El campo de teléfono no puede estar vacío. Ingresa un número válido.");
+            return;
+        }
+
+        if (nota.trim().isEmpty()) {
+            mostrarAlerta("Agrega una nota para este contacto. Puedes escribir algo importante o personal.");
             return;
         }
 
