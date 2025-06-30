@@ -56,8 +56,10 @@ public class ActivityContactos extends AppCompatActivity {
         back.setOnClickListener(v -> finish());
         favs.setOnClickListener(v -> Toast.makeText(this, "No hay contactos agregados a favoritos!", Toast.LENGTH_SHORT).show());
         contactos.setLayoutManager(new LinearLayoutManager(this));
+
         database = new DatabaseHelper(this);
         listaContactos = database.getContactos();
+
         Collections.sort(listaContactos, (c1, c2) -> c1.getNombre().compareToIgnoreCase(c2.getNombre()));
         ca = new ContactoAdapter(this, listaContactos, new ContactoAdapter.OnItemClickListener() {
             @Override
