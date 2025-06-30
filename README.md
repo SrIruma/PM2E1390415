@@ -7,8 +7,8 @@ Este proyecto corresponde al examen del primer parcial de la asignatura Programa
 
 | Nombre del integrante | Número de cuenta | Función principal                            |
 |-----------------------|------------------|----------------------------------------------|
-| Integrante 1          | E1XXXXXXXX        | Base de datos y modelos                      |
-| Integrante 2          | E2XXXXXXXX        | Interfaz gráfica y diseño de layouts         |
+| Said Ortiz          | 123020004        | Base de datos y modelos                      |
+| Enrique Romero          | 219090015        | Interfaz gráfica y diseño de layouts         |
 | Carlos Espinoza     | 122590039          | Lógica general, integración, validaciones    |
 ## Descripción
 
